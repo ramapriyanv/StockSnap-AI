@@ -25,7 +25,11 @@ function App() {
       setStockData(stockRes.data);
 
       // Fetch AI summary
-      const summaryRes = await axios.post(`https://stocksnap-ai.onrender.com/summarize`, stockRes.data);
+      const summaryRes = await axios.post(
+  `https://stocksnap-ai.onrender.com/summarize`,
+  stockRes.data,
+  { headers: { 'Content-Type': 'application/json' } }
+);
       setSummary(summaryRes.data.summary);
     } catch (err: any) {
       console.error(err);
