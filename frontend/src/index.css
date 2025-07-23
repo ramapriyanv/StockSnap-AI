@@ -1,5 +1,7 @@
 /* index.css */
 :root {
+  --bg-light: #ffffff;
+  --text-light: #000000;
   --bg-dark: #121212;
   --text-dark: #f1f1f1;
   --accent: #1e90ff;
@@ -9,6 +11,14 @@ body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   transition: background-color 0.3s, color 0.3s;
+}
+
+.light {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+.dark {
   background-color: var(--bg-dark);
   color: var(--text-dark);
 }

@@ -19,9 +19,11 @@ function App() {
     setSummary(null);
 
     try {
+      // Fetch stock data
       const stockRes = await axios.get(`https://stocksnap-ai.onrender.com/stock?ticker=${ticker}`);
       setStockData(stockRes.data);
 
+      // Fetch AI summary
       try {
         const summaryRes = await axios.post(
           `https://stocksnap-ai.onrender.com/summarize`,
@@ -42,35 +44,29 @@ function App() {
   };
 
   useEffect(() => {
-    document.body.classList.add('dark'); // Force dark mode on mount
-  }, []);
-
-  useEffect(() => {
-    document.title = stockData?.ticker ? `${stockData.ticker} – StockSnap AI` : "StockSnap AI";
+    if (stockData?.ticker) {
+      document.title = `${stockData.ticker} – StockSnap AI`;
+    } else {
+      document.title = "StockSnap AI";
+    }
   }, [stockData]);
 
   return (
     <div className="app-container">
       <h1>📈 StockSnap AI</h1>
 
-      <div className="top-bar">
-        <form onSubmit={handleSubmit} className="ticker-form">
-          <input
-            type="text"
-            value={ticker}
-            onChange={(e) => setTicker(e.target.value.toUpperCase())}
-            placeholder="Enter stock ticker (e.g. AAPL)"
-            required
-          />
-          <button type="submit" disabled={loading}>
-            {loading ? 'Loading...' : 'Analyze'}
-          </button>
-        </form>
-      </div>
-
-      {loading && (
-        <div className="loader">🔄 Fetching data...</div>
-      )}
+      <form onSubmit={handleSubmit} className="ticker-form">
+        <input
+          type="text"
+          value={ticker}
+          onChange={(e) => setTicker(e.target.value.toUpperCase())}
+          placeholder="Enter stock ticker (e.g. AAPL)"
+          required
+        />
+        <button type="submit" disabled={loading}>
+          {loading ? 'Loading...' : 'Analyze'}
+        </button>
+      </form>
 
       {error && <p className="error">{error}</p>}
 
