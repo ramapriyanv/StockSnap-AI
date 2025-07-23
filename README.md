@@ -16,7 +16,7 @@
 
 ## 🖼️ Preview
 
-![StockSnap AI Demo](./demo-screenshot.png)
+![StockSnap AI Demo](./demo-screenshot1.png)
 
 ---
 
