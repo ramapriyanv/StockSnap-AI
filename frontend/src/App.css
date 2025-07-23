@@ -1,0 +1,53 @@
+.app-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.ticker-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.ticker-form input {
+  flex: 1;
+  padding: 0.7rem;
+  font-size: 1rem;
+}
+
+.ticker-form button {
+  padding: 0.7rem 1.2rem;
+  font-weight: bold;
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.results ul {
+  list-style: none;
+  padding: 0;
+}
+
+.results li {
+  margin-bottom: 0.5rem;
+}
+
+.summary-box {
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-left: 5px solid #0077ff;
+  margin-top: 1.5rem;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
