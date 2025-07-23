@@ -10,7 +10,6 @@ function App() {
   const [stockData, setStockData] = useState<any | null>(null);
   const [summary, setSummary] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [darkMode, setDarkMode] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,10 +42,8 @@ function App() {
   };
 
   useEffect(() => {
-  document.body.classList.remove('light', 'dark');
-  document.body.classList.add(darkMode ? 'dark' : 'light');
-}, [darkMode]);
-
+    document.body.classList.add('dark'); // Force dark mode on mount
+  }, []);
 
   useEffect(() => {
     document.title = stockData?.ticker ? `${stockData.ticker} – StockSnap AI` : "StockSnap AI";
@@ -69,10 +66,6 @@ function App() {
             {loading ? 'Loading...' : 'Analyze'}
           </button>
         </form>
-
-        <button className="mode-toggle" onClick={() => setDarkMode(!darkMode)}>
-          {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
-        </button>
       </div>
 
       {loading && (
