@@ -3,15 +3,9 @@
   margin: 0 auto;
   padding: 2rem;
   font-family: 'Inter', sans-serif;
-  transition: background-color 0.3s, color 0.3s;
-  background-color: var(--bg-light);
-  color: var(--text-light);
+  transition: color 0.3s;
 }
 
-body.dark .app-container {
-  background-color: var(--bg-dark);
-  color: var(--text-dark);
-}
 
 h1 {
   text-align: center;
