@@ -53,7 +53,7 @@ npm run dev
 
 ## 🌍 Live Demo
 
-**[https://stocksnap-ai.vercel.app](https://stocksnap-ai.vercel.app)**
+**[Vercel App](https://stock-snap-ai.vercel.app)**
 
 ---
 
