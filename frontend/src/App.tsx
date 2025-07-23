@@ -43,8 +43,10 @@ function App() {
   };
 
   useEffect(() => {
-    document.body.className = darkMode ? 'dark' : 'light';
-  }, [darkMode]);
+  document.body.classList.remove('light', 'dark');
+  document.body.classList.add(darkMode ? 'dark' : 'light');
+}, [darkMode]);
+
 
   useEffect(() => {
     document.title = stockData?.ticker ? `${stockData.ticker} – StockSnap AI` : "StockSnap AI";
