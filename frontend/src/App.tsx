@@ -4,7 +4,6 @@ import './App.css';
 import StockChart from './components/StockChart';
 import ReactMarkdown from 'react-markdown';
 
-
 function App() {
   const [ticker, setTicker] = useState('');
   const [loading, setLoading] = useState(false);
@@ -25,27 +24,32 @@ function App() {
       setStockData(stockRes.data);
 
       // Fetch AI summary
-      const summaryRes = await axios.post(
-  `https://stocksnap-ai.onrender.com/summarize`,
-  stockRes.data,
-  { headers: { 'Content-Type': 'application/json' } }
-);
-      setSummary(summaryRes.data.summary);
-    } catch (err: any) {
+      try {
+        const summaryRes = await axios.post(
+          `https://stocksnap-ai.onrender.com/summarize`,
+          stockRes.data,
+          { headers: { 'Content-Type': 'application/json' } }
+        );
+        setSummary(summaryRes.data.summary);
+      } catch (summaryErr) {
+        console.warn("AI summary failed:", summaryErr);
+        setSummary("⚠️ AI summary not available for this stock.");
+      }
+    } catch (err) {
       console.error(err);
-      setError("Failed to fetch data. Please check the ticker or try again later.");
+      setError("Failed to fetch stock data. Please check the ticker or try again later.");
     } finally {
       setLoading(false);
     }
   };
-  useEffect(() => {
-  if (stockData?.ticker) {
-    document.title = `${stockData.ticker} – StockSnap AI`;
-  } else {
-    document.title = "StockSnap AI";
-  }
-}, [stockData]);
 
+  useEffect(() => {
+    if (stockData?.ticker) {
+      document.title = `${stockData.ticker} – StockSnap AI`;
+    } else {
+      document.title = "StockSnap AI";
+    }
+  }, [stockData]);
 
   return (
     <div className="app-container">
@@ -77,17 +81,17 @@ function App() {
           </ul>
         </div>
       )}
-      {stockData?.history && stockData?.dates && (
-  <StockChart history={stockData.history} dates={stockData.dates} />
-)}
 
+      {stockData?.history && stockData?.dates && (
+        <StockChart history={stockData.history} dates={stockData.dates} />
+      )}
 
       {summary && (
-  <div className="summary-box">
-    <h3>💬 AI Summary</h3>
-    <ReactMarkdown>{summary}</ReactMarkdown>
-  </div>
-)}
+        <div className="summary-box">
+          <h3>💬 AI Summary</h3>
+          <ReactMarkdown>{summary}</ReactMarkdown>
+        </div>
+      )}
     </div>
   );
 }
