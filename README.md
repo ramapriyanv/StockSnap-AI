@@ -54,11 +54,3 @@ npm run dev
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
-
----
-
-## 🙌 Acknowledgments
-
-- Google Gemini API (AI summaries)
-- Yahoo Finance for market data
-- React & FastAPI communities
