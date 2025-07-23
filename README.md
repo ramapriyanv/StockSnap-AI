@@ -16,7 +16,13 @@
 
 ## 🖼️ Preview
 
-![StockSnap AI Demo](./demo-screenshot1.png)
+**Main Dashboard:**
+
+![Main Dashboard](./demo-screenshot.png)
+
+**AI Summary Section:**
+
+![AI Summary](./summary-screenshot.png)
 
 ---
 
