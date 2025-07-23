@@ -21,11 +21,11 @@ function App() {
 
     try {
       // Fetch stock data
-      const stockRes = await axios.get(`http://127.0.0.1:8000/stock?ticker=${ticker}`);
+      const stockRes = await axios.get(`https://stocksnap-ai.onrender.com/stock?ticker=${ticker}`);
       setStockData(stockRes.data);
 
       // Fetch AI summary
-      const summaryRes = await axios.post(`http://127.0.0.1:8000/summarize`, stockRes.data);
+      const summaryRes = await axios.post(`https://stocksnap-ai.onrender.com/summarize`, stockRes.data);
       setSummary(summaryRes.data.summary);
     } catch (err: any) {
       console.error(err);
