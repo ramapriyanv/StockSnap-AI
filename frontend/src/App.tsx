@@ -20,13 +20,13 @@ function App() {
 
     try {
       // Fetch stock data
-      const stockRes = await axios.get(`https://stocksnap-ai.onrender.com/stock?ticker=${ticker}`);
+      const stockRes = await axios.get(`https://stocksnap-backend-d546a2608c10.herokuapp.com/stock?ticker=${ticker}`);
       setStockData(stockRes.data);
 
       // Fetch AI summary
       try {
         const summaryRes = await axios.post(
-          `https://stocksnap-ai.onrender.com/summarize`,
+          `https://stocksnap-backend-d546a2608c10.herokuapp.com/summarize`,
           stockRes.data,
           { headers: { 'Content-Type': 'application/json' } }
         );
