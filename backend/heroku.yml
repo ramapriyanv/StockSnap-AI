@@ -1,0 +1,9 @@
+build:
+  languages:
+    - python
+  scripts:
+    - cd backend
+    - pip install -r requirements.txt
+
+run:
+  web: cd backend && uvicorn main:app --host=0.0.0.0 --port=${PORT:-5000}
