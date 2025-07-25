@@ -1,6 +1,6 @@
 fastapi
 uvicorn
-httpx
+yfinance
 python-dotenv
 google-generativeai
-yfinance
+pydantic
