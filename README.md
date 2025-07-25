@@ -31,7 +31,7 @@
 | Frontend        | Backend       | AI & APIs        | Deployment     |
 |-----------------|---------------|------------------|----------------|
 | React + TypeScript | FastAPI (Python) | Gemini API (Google AI) | Vercel (Frontend) |
-| Recharts         | Axios        |                  | Render (Backend) |
+| Recharts         | Axios        |                  | Heroku (Backend) |
 
 ---
 
